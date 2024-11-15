@@ -58,22 +58,25 @@ else{
 									</div>									
                                     <div class="card-body">
 										<div class="small mb-1" id="invalid" style="color:red;" ><?php echo $invalidalert; ?></div>
-                                        <form method="POST" action="authenticate.php" >
-                                            <div class="form-group">
-                                                <label class="small mb-1" id="foruser">Username</label>
-                                                <input class="form-control py-4" id="inputUsername" name="inputUsername" type="text" placeholder="Enter Username" onclick="document.getElementById('invalid').innerHTML = '';" required />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="small mb-1" id="forpass">Password</label>
-                                                <input class="form-control py-4" id="inputPassword" name="inputPassword" type="password" placeholder="Enter password" onclick="document.getElementById('invalid').innerHTML = '';"required />
-                                            </div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <input type="submit" class="btn btn-primary btn-block" value="Login" />
-                                            </div>
-                                        </form>
+                                        <div id="signinform">
+                                            <h4 class="mb-3 text-center">Sign in to your account</h4>
+                                            <form method="POST" action="authenticate.php" >
+                                                <div class="form-group">
+                                                    <label class="small mb-1" id="foruser">Email</label>
+                                                    <input class="form-control py-4" id="inputUsername" name="inputUsername" type="email" placeholder="Enter Username" onclick="document.getElementById('invalid').innerHTML = '';" required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1" id="forpass">Password</label>
+                                                    <input class="form-control py-4" id="inputPassword" name="inputPassword" type="password" placeholder="Enter password" onclick="document.getElementById('invalid').innerHTML = '';"required />
+                                                </div>
+                                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                    <input type="submit" class="btn btn-primary btn-block" value="Sign in" />
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"></div>
+                                        <div id="signupbtn" class="medium my-2">Don't have an account? <a href="createaccount.php">Sign Up</a></div>
                                     </div>
                                 </div>
                             </div>

@@ -32,7 +32,7 @@ $unit_price = array();
 		<link rel="icon" href="onpointweblogo.png" type="image/icon type">
     </head>
 	
-    <body class="sb-nav-fixed" onload="getunitPrice(document.getElementById('selectitem').options[0].text)">
+    <body class="sb-nav-fixed" onload="getunitPrice(document.getElementById('selectitem').options[0].value)">
         <nav class="sb-topnav navbar navbar-expand bg-cus">
             <a class="navbar-brand" href="index.php"><img href="index.php" src="logoonp.png" style="height: 42px; margin: 0px 0px 0px 10px;"></a>
 			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -42,7 +42,7 @@ $unit_price = array();
             </form>
             <!-- Navbar-->
             <div class="navbar-nav ml-auto ml-md-0 small">
-			<a class="nav-link dropdown-toggle mr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["user"]."  ";?></i></a>
+			<a class="nav-link dropdown-toggle mr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["nickname"]."  ";?></i></a>
 			<div class="dropdown-menu dropdown-menu-right">
 			  <a class="dropdown-item small" href="changepassword.php" >Change Password</a>
 			  <div class="dropdown-divider"></div>
@@ -133,7 +133,7 @@ $unit_price = array();
 														// output data of each row
 														while($row = $result->fetch_assoc()) {
 														echo "
-														<option>".$row["item_name"]."</option>
+														<option value=".$row["item_id"].">".$row["item_name"]."</option>
 														";
 														array_push($unit_price,$row["item_id"]);
 														

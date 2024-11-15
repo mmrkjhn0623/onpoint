@@ -43,7 +43,7 @@ $unit_price = array();
             </form>
             <!-- Navbar-->
             <div class="navbar-nav ml-auto ml-md-0 small">
-			<a class="nav-link dropdown-toggle mr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["user"]."  ";?></i></a>
+			<a class="nav-link dropdown-toggle mr-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["nickname"]."  ";?></i></a>
 			<div class="dropdown-menu dropdown-menu-right">
 			  <a class="dropdown-item small" href="changepassword.php" >Change Password</a>
 			  <div class="dropdown-divider"></div>

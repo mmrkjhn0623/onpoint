@@ -6,7 +6,7 @@ $pass = $_POST['inputPassword'];
 
 include "config.php";
 
-$sql="SELECT user_id,username,password,company_id FROM users WHERE username = '".$user."' and password ='".$pass."'";
+$sql="SELECT user_id,username,password,nickname,company_id FROM users WHERE username = '".$user."' and password ='".$pass."'";
 $result = mysqli_query($conn,$sql);
 
 if($row = mysqli_fetch_array($result)) {
@@ -15,6 +15,7 @@ if($row = mysqli_fetch_array($result)) {
 	$_SESSION["pwd"] = $pass;
 	$_SESSION["userid"] = $row["user_id"];
 	$_SESSION["companyid"] = $row["company_id"];
+	$_SESSION['nickname'] = $row["nickname"];
 	
 	$sqlcompany="SELECT name,address,contact FROM company WHERE company_id = '".$row["company_id"]."' ";
 	$resultcompany = mysqli_query($conn,$sqlcompany);
