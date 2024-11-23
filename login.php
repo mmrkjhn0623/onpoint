@@ -5,7 +5,6 @@ if(isset($_SESSION["user"])){
 	header("Location: index.php");
 }
  
-include "config.php";
 error_reporting(0);
 $invalidalert = ""; 
 if($_GET["invalid"]){
@@ -54,7 +53,7 @@ else{
 
                                 <div class="card shadow-lg border-0 rounded-lg mb-5">
                                     <div class="card-header">
-									<h5 class="text-center font-weight-light my-4"><img src="logoonp.png" style="width:250px;height:auto;margin-bottom:8px;" /><br/>Online Inventory and Sales Monitoring System</h5>
+									<h5 class="text-center font-weight-light my-4"><img src="logoonp.png" style="width:142px;height:auto;margin-bottom:8px;" /><br/>Online Inventory and Sales Monitoring System</h5>
 									</div>									
                                     <div class="card-body">
 										<div class="small mb-1" id="invalid" style="color:red;" ><?php echo $invalidalert; ?></div>

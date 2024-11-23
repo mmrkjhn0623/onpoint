@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 04:14 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Nov 23, 2024 at 05:31 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `company` (
   `name` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
   `contact` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `company`
@@ -42,7 +42,11 @@ INSERT INTO `company` (`company_id`, `name`, `address`, `contact`) VALUES
 (1, 'MJ Ramone Music Store', 'P. Rodriguez St., Cebu City, PH 6000', '09236587963'),
 (2, 'Jeremy Fruit Stunt', 'AS Fortuna St., Mandaue City, Cebu, PH 6014', '09476632549'),
 (3, 'John PC Parts and Accesories Store', 'AC Cortes, Mandaue City, Cebu, PH 6014', '09265879932'),
-(4, 'JCrew Footwear and Clothing', '2nd Floor SM City Cebu, Mabolo, Cebu City, PH 6000', '');
+(4, 'JCrew Footwear and Clothing', '2nd Floor SM City Cebu, Mabolo, Cebu City, PH 6000', '09124344116'),
+(26, 'MJ Guitar Center Cebu', 'P. Rodriguez St., Cebu City, PH', '09124920092'),
+(27, 'MJ Yahoo Store', 'Not Available', 'Not Available'),
+(31, 'Mark John Clothing', 'Not Available', 'Not Available'),
+(32, 'Nagarro Online Store', 'Not Available', 'Not Available');
 
 -- --------------------------------------------------------
 
@@ -58,7 +62,7 @@ CREATE TABLE `invoice` (
   `quantity` int(11) NOT NULL,
   `date` date NOT NULL,
   `company_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `invoice`
@@ -327,12 +331,32 @@ INSERT INTO `invoice` (`invoice_id`, `si_no`, `item_id`, `sold_price`, `quantity
 (342, 0000122, 85, 0, 1, '2022-01-22', 1),
 (343, 0000122, 59, 0, 1, '2022-01-22', 1),
 (344, 0000123, 66, 0, 2, '2022-01-22', 1),
-(345, 0000000, 91, 4300, 1, '2022-01-24', 3),
 (346, 0000124, 66, 5199, 1, '2022-01-24', 1),
 (347, 0000124, 71, 890, 2, '2022-01-24', 1),
 (348, 0000124, 70, 340, 1, '2022-01-24', 1),
 (349, 0000001, 92, 5099, 1, '2022-01-24', 3),
-(350, 0000002, 93, 7000, 1, '2022-11-10', 3);
+(350, 0000002, 93, 7000, 1, '2022-11-10', 3),
+(351, 0000125, 58, 5900, 1, '2024-10-04', 1),
+(352, 0000125, 71, 890, 2, '2024-10-04', 1),
+(353, 0000003, 91, 4500, 0, '2024-11-08', 3),
+(354, 0000004, 93, 7000, 1, '2024-11-08', 3),
+(355, 0000126, 66, 5199, 1, '2024-11-11', 1),
+(356, 0000126, 90, 6550, 1, '2024-11-11', 1),
+(357, 0000127, 58, 5900, 1, '2024-11-11', 1),
+(358, 0000127, 60, 40, 5, '2024-11-11', 1),
+(359, 0000128, 61, 5600, 2, '2024-11-11', 1),
+(360, 0000129, 59, 22000, 1, '2024-11-11', 1),
+(361, 0000130, 66, 5199, 1, '2024-11-11', 1),
+(362, 0000131, 72, 2100, 1, '2024-11-11', 1),
+(363, 0000132, 68, 3200, 1, '2024-11-11', 1),
+(364, 0000133, 70, 350, 3, '2024-11-11', 1),
+(365, 0000005, 93, 7000, 1, '2024-11-11', 3),
+(366, 0000134, 60, 40, 89, '2024-11-11', 1),
+(367, 0000006, 93, 7000, 1, '2024-11-11', 3),
+(390, 0000000, 0, 0, 0, '0000-00-00', 26),
+(391, 0000000, 0, 0, 0, '0000-00-00', 27),
+(394, 0000000, 0, 0, 0, '0000-00-00', 30),
+(396, 0000000, 0, 0, 0, '0000-00-00', 32);
 
 -- --------------------------------------------------------
 
@@ -347,7 +371,7 @@ CREATE TABLE `items` (
   `unit_price` float NOT NULL,
   `stock` int(11) NOT NULL,
   `company_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `items`
@@ -355,18 +379,18 @@ CREATE TABLE `items` (
 
 INSERT INTO `items` (`item_id`, `item_name`, `unit`, `unit_price`, `stock`, `company_id`) VALUES
 (8, 'Focusrite Solo 2i2', 'piece', 5900, 21, 1),
-(58, 'Fender Strat Bullet Red', 'pcs', 5900, 3, 1),
-(59, 'Marshall Amplifier 4x12 Cab', 'Box', 22000, 4, 1),
-(60, 'Ernie Ball Guitar Pick', 'piece', 40, 294, 1),
-(61, 'Fernando Acoustic Guitar', 'pcs', 5600, 7, 1),
+(58, 'Fender Strat Bullet Red', 'pcs', 6000, 1, 1),
+(59, 'Marshall Amplifier 4x12 Cab', 'Box', 22000, 3, 1),
+(60, 'Ernie Ball Guitar Pick', 'piece', 40, 200, 1),
+(61, 'Fernando Acoustic Guitar', 'pcs', 5600, 5, 1),
 (65, 'Marshall Guitar Cord 2m', 'pcs', 180, 199, 1),
-(66, 'Boss Distortion M130', 'piece', 5199, 13, 1),
+(66, 'Boss Distortion M130', 'piece', 5199, 11, 1),
 (67, 'Ibanez 7 String Guitar Black', 'pcs', 26000, 3, 1),
-(68, 'Ubec Gigcase Electric Guitar Bag', 'pcs', 3200, 8, 1),
+(68, 'Ubec Gigcase Electric Guitar Bag', 'pcs', 3200, 7, 1),
 (69, 'Orange Amp 4x12 Cab', 'pcs', 36500, 3, 1),
-(70, 'Elixr Acoustic Guitar String', 'pack', 350, 29, 1),
-(71, 'Dimarzio Guitar Strap', 'piece', 890, 32, 1),
-(72, 'Polytune Guitar Tuner', 'pcs', 2100, 10, 1),
+(70, 'Elixr Acoustic Guitar String', 'pack', 350, 26, 1),
+(71, 'Dimarzio Guitar Strap', 'piece', 890, 30, 1),
+(72, 'Polytune Guitar Tuner', 'pcs', 2100, 9, 1),
 (73, 'Yamaha Drumset Maple Black', 'set', 16000, 0, 1),
 (74, 'Zoom Multi-Effect Pedal GT', 'piece', 12000, 7, 1),
 (76, 'JCraft Presicion Bass Standard', 'pcs', 6500, 3, 1),
@@ -381,10 +405,12 @@ INSERT INTO `items` (`item_id`, `item_name`, `unit`, `unit_price`, `stock`, `com
 (87, 'Jordan 1 White', 'pair', 3600, 1, 4),
 (88, 'Jordan 1 Black', 'pair', 3600, 6, 4),
 (89, 'Jordan 1 Red', 'pair', 3600, 2, 4),
-(90, 'GTX Acoustic Guitar Nylon', 'piece', 6550, 1, 1),
-(91, 'Samsung SSD 320gb', 'pcs', 4500, 14, 3),
-(92, 'Asus B450 Motherboard ', 'pcs', 5149, 0, 3),
-(93, 'Nvidia GTX 940 GPU', 'pcs', 7000, 4, 3);
+(90, 'GTX Acoustic Guitar Nylon', 'piece', 6550, 0, 1),
+(91, 'Samsung SSD 320gb', 'pcs', 4000, 10, 3),
+(92, 'Asus B450 Motherboard ', 'pcs', 5149, 12, 3),
+(93, 'Nvidia GTX 940 GPU', 'pcs', 7000, 1, 3),
+(95, 'Les Paul Sunburst', 'pcs', 150000, 7, 12),
+(96, 'Banana Shake', 'Cup', 85, 17, 13);
 
 -- --------------------------------------------------------
 
@@ -396,18 +422,21 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `company_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `company_id` varchar(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `company_id`) VALUES
-(1, 'mmrkjhn0623', '123456789', 1),
-(2, 'homesick2009', 'kkkkklllll', 2),
-(3, 'johncampbell01', 'jajajajaja', 3),
-(4, 'newfoundglory98', 'nfgnfgnfgnfg', 4);
+(1, 'mmrkjhn0623@yahoo.com', '123456789', '1'),
+(2, 'homesick2009@yahoo.com', 'kkkkklllll', '2'),
+(3, 'johncampbell01@yahoo.com', 'jajajajaja', '3'),
+(4, 'newfoundglory98@yahoo.com', 'nfgnfgnfgnfg', '4'),
+(29, 'mmrkjhn@gmail.com', 'Dvplicadzswe0623182!', '26'),
+(30, 'mmrkjhn@yahoo.com', 'KZn2jqQeVvW4cRK', '27'),
+(35, 'mark.mondares@nagarro.com', 'ErMJJkkD7irVN43', '32');
 
 --
 -- Indexes for dumped tables
@@ -445,25 +474,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `invoice_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
+  MODIFY `invoice_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=397;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

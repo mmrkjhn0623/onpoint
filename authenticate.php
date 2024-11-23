@@ -15,7 +15,7 @@ if($row = mysqli_fetch_array($result)) {
 	$_SESSION["pwd"] = $pass;
 	$_SESSION["userid"] = $row["user_id"];
 	$_SESSION["companyid"] = $row["company_id"];
-	$_SESSION['nickname'] = $row["nickname"];
+	$_SESSION['nickname'] = explode('@', $user)[0];
 	
 	$sqlcompany="SELECT name,address,contact FROM company WHERE company_id = '".$row["company_id"]."' ";
 	$resultcompany = mysqli_query($conn,$sqlcompany);

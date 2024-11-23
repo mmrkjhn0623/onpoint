@@ -622,6 +622,7 @@ pre code {
 }
 .row {
   display: flex;
+  flex-direction: row !important;
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
